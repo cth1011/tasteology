@@ -1,12 +1,25 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
+import Modal from "~/components/Modal";
 
 export default function CookingSection() {
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    console.log("Clicked element:", e.currentTarget);
+    // If this anchor contains an image, set it to display in modal
+    const img = e.currentTarget.querySelector("img");
+    if (img) {
+      setModalImage(img.src);
+    }
+  };
   return (
     <section className="mx-auto py-16 md:max-w-6xl md:py-24">
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
         <div className="col-span-1 hidden lg:block">
-          <a href="#">
+          <a href="#" onClick={handleClick}>
             <Image
               src="/pot.png"
               alt="Pot cooking over fire"
@@ -18,7 +31,7 @@ export default function CookingSection() {
         </div>
 
         <div className="col-span-1 hidden gap-2 lg:grid">
-          <a href="#">
+          <a href="#" onClick={handleClick}>
             <Image
               src="/chef.png"
               alt="Chef experimenting with food"
@@ -27,7 +40,7 @@ export default function CookingSection() {
               className="w-full object-cover"
             />
           </a>
-          <a href="#">
+          <a href="#" onClick={handleClick}>
             <Image
               src="/eggs.png"
               alt="Egg yolks in different stages"
@@ -46,7 +59,7 @@ export default function CookingSection() {
             <div className="mb-10 h-0.5 w-16 justify-self-center bg-gray-400 md:hidden"></div>
             <div className="hidden gap-2 px-16 pt-7.5 md:grid md:grid-cols-2 lg:hidden">
               <div className="col-span-1">
-                <a href="#">
+                <a href="#" onClick={handleClick}>
                   <Image
                     src="/pot.png"
                     alt="Pot cooking over fire"
@@ -57,7 +70,7 @@ export default function CookingSection() {
                 </a>
               </div>
               <div className="col-span-1 grid gap-2">
-                <a href="#">
+                <a href="#" onClick={handleClick}>
                   <Image
                     src="/chef.png"
                     alt="Chef experimenting with food"
@@ -66,7 +79,7 @@ export default function CookingSection() {
                     className="w-full object-cover"
                   />
                 </a>
-                <a href="#">
+                <a href="#" onClick={handleClick}>
                   <Image
                     src="/eggs.png"
                     alt="Egg yolks in different stages"
@@ -116,6 +129,9 @@ export default function CookingSection() {
           </div>
         </div>
       </div>
+      {modalImage && (
+        <Modal imageUrl={modalImage} onClose={() => setModalImage(null)} />
+      )}
     </section>
   );
 }

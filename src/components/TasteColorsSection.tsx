@@ -1,7 +1,18 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
+import ImageModal from "~/components/Modal";
 
 export default function TasteColorsSection() {
+  const [modalImage, setModalImage] = useState<string | null>(null);
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const img = e.currentTarget.querySelector("img");
+    if (img) {
+      setModalImage(img.src);
+    }
+  };
+
   const colorTastes = [
     {
       color: "RED",
@@ -35,7 +46,11 @@ export default function TasteColorsSection() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:px-16 lg:px-4">
         {colorTastes.map((item, index) => (
           <div key={index} className="group text-center">
-            <a href="#" className="mb-6 block overflow-hidden">
+            <a
+              href="#"
+              className="mb-6 block overflow-hidden"
+              onClick={handleClick}
+            >
               <Image
                 src={item.image}
                 alt={`${item.color} food on spoon`}
@@ -49,6 +64,9 @@ export default function TasteColorsSection() {
           </div>
         ))}
       </div>
+      {modalImage && (
+        <ImageModal imageUrl={modalImage} onClose={() => setModalImage(null)} />
+      )}
     </section>
   );
 }
