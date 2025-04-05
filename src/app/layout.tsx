@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Tasteology",
   description: "A culinary journey through taste and color",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  viewport:
+    "width=device-width, initial-scale=1, maximum-scale=5.0, viewport-fit=cover",
 };
 
 const openSans = Open_Sans({
