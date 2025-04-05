@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
     content: [
       './components/**/*.{js,ts,jsx,tsx,mdx}',
       './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,11 +7,13 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          'red': {
+          red: {
             500: '#FF424E', // Custom red color for "THE PERFECT EGG" text
-          }
+          },
         },
       },
     },
     plugins: [],
-  }
+  };
+  
+  export default config;
