@@ -7,9 +7,7 @@ export default function TasteColorsSection() {
   const [modalImage, setModalImage] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // State to track if elements are visible
+  const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [isVisible, setIsVisible] = useState({
     title: false,
     items: [false, false, false],
@@ -110,7 +108,9 @@ export default function TasteColorsSection() {
         {colorTastes.map((item, index) => (
           <div
             key={index}
-            ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => {
+              itemRefs.current[index] = el;
+            }}
             className={`group text-center ${
               isVisible.items[index]
                 ? `animate-fade-up animate-once animate-duration-1000 animate-delay-${(index + 1) * 200} animate-ease-in`
