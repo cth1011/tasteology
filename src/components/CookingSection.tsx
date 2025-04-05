@@ -91,7 +91,7 @@ export default function CookingSection() {
                 </a>
               </div>
             </div>
-            <a href="#" className="block md:hidden">
+            <a href="#" className="block md:hidden" onClick={handleClick}>
               <Image
                 src="/chef.png"
                 alt="Chef experimenting with food"
@@ -111,7 +111,11 @@ export default function CookingSection() {
             </p>
           </div>
 
-          <a href="#" className="block pt-7.5 pb-2.5 md:hidden">
+          <a
+            href="#"
+            className="block pt-7.5 pb-2.5 md:hidden"
+            onClick={handleClick}
+          >
             <Image
               src="/eggs.png"
               alt="Egg yolks in different stages"
