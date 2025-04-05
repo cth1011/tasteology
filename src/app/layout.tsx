@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 };
 
 const openSans = Open_Sans({
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
   subsets: ["latin"],
-  variable: "--font-openSans-sans",
+  variable: "--font-sans",
 });
 
 export default function RootLayout({
