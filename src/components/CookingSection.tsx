@@ -6,23 +6,23 @@ import Modal from "~/components/Modal";
 export default function CookingSection() {
   const [modalImage, setModalImage] = useState<string | null>(null);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    fileName: string,
+  ) => {
     e.preventDefault();
     console.log("Clicked element:", e.currentTarget);
-    // If this anchor contains an image, set it to display in modal
-    const img = e.currentTarget.querySelector("img");
-    if (img) {
-      setModalImage(img.src);
-    }
+    setModalImage(fileName);
   };
 
   return (
     <section className="mx-auto py-16 md:max-w-6xl md:py-24">
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
         <div className="col-span-1 hidden lg:block">
-          <a href="#" onClick={handleClick}>
+          <a href="#" onClick={(e) => handleClick(e, "/pot.png")}>
             <Image
               src="/pot.png"
+              data-file-path="/pot.png"
               alt="Pot cooking over fire"
               width={372}
               height={600}
@@ -32,7 +32,7 @@ export default function CookingSection() {
         </div>
 
         <div className="col-span-1 hidden gap-2 lg:grid">
-          <a href="#" onClick={handleClick}>
+          <a href="#" onClick={(e) => handleClick(e, "/chef.png")}>
             <Image
               src="/chef.png"
               alt="Chef experimenting with food"
@@ -41,7 +41,7 @@ export default function CookingSection() {
               className="animate-fade-down animate-once animate-duration-1000 animate-delay-300 animate-ease-in-out w-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </a>
-          <a href="#" onClick={handleClick}>
+          <a href="#" onClick={(e) => handleClick(e, "/eggs.png")}>
             <Image
               src="/eggs.png"
               alt="Egg yolks in different stages"
@@ -60,7 +60,7 @@ export default function CookingSection() {
             <div className="animate-fade animate-once animate-duration-1000 animate-delay-800 mb-10 h-0.5 w-16 justify-self-center bg-gray-400 md:hidden"></div>
             <div className="hidden gap-2 px-16 pt-7.5 md:grid md:grid-cols-2 lg:hidden">
               <div className="col-span-1">
-                <a href="#" onClick={handleClick}>
+                <a href="#" onClick={(e) => handleClick(e, "/pot.png")}>
                   <Image
                     src="/pot.png"
                     alt="Pot cooking over fire"
@@ -71,7 +71,7 @@ export default function CookingSection() {
                 </a>
               </div>
               <div className="col-span-1 grid gap-2">
-                <a href="#" onClick={handleClick}>
+                <a href="#" onClick={(e) => handleClick(e, "/chef.png")}>
                   <Image
                     src="/chef.png"
                     alt="Chef experimenting with food"
@@ -80,7 +80,7 @@ export default function CookingSection() {
                     className="animate-fade-down animate-once animate-duration-1000 animate-delay-300 animate-ease-in-out w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </a>
-                <a href="#" onClick={handleClick}>
+                <a href="#" onClick={(e) => handleClick(e, "/eggs.png")}>
                   <Image
                     src="/eggs.png"
                     alt="Egg yolks in different stages"
@@ -91,7 +91,11 @@ export default function CookingSection() {
                 </a>
               </div>
             </div>
-            <a href="#" className="block md:hidden" onClick={handleClick}>
+            <a
+              href="#"
+              className="block md:hidden"
+              onClick={(e) => handleClick(e, "/pot.png")}
+            >
               <Image
                 src="/chef.png"
                 alt="Chef experimenting with food"
@@ -114,7 +118,7 @@ export default function CookingSection() {
           <a
             href="#"
             className="block pt-7.5 pb-2.5 md:hidden"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, "/eggs.png")}
           >
             <Image
               src="/eggs.png"

@@ -13,13 +13,14 @@ export default function TasteColorsSection() {
     items: [false, false, false],
   });
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    fileName: string,
+  ) => {
     e.preventDefault();
     const img = e.currentTarget.querySelector("img");
     console.log("Clicked element:", e.currentTarget);
-    if (img) {
-      setModalImage(img.src);
-    }
+    setModalImage(fileName);
   };
 
   useEffect(() => {
@@ -120,7 +121,7 @@ export default function TasteColorsSection() {
             <a
               href="#"
               className="mb-6 block overflow-hidden"
-              onClick={handleClick}
+              onClick={(e) => handleClick(e, item.image)}
             >
               <Image
                 src={item.image}
