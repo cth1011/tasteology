@@ -66,7 +66,7 @@ export default function CookingSection() {
                     alt="Pot cooking over fire"
                     width={372}
                     height={600}
-                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="animate-fade-right animate-once animate-duration-1000 animate-delay-100 animate-ease-in-out w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </a>
               </div>
@@ -77,7 +77,7 @@ export default function CookingSection() {
                     alt="Chef experimenting with food"
                     width={372}
                     height={295}
-                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="animate-fade-down animate-once animate-duration-1000 animate-delay-300 animate-ease-in-out w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </a>
                 <a href="#" onClick={handleClick}>
@@ -86,7 +86,7 @@ export default function CookingSection() {
                     alt="Egg yolks in different stages"
                     width={372}
                     height={295}
-                    className="w-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="animate-fade-up animate-once animate-duration-1000 animate-delay-500 animate-ease-in-out w-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </a>
               </div>
