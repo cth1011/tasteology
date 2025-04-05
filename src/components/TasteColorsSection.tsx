@@ -18,7 +18,6 @@ export default function TasteColorsSection() {
     fileName: string,
   ) => {
     e.preventDefault();
-    const img = e.currentTarget.querySelector("img");
     console.log("Clicked element:", e.currentTarget);
     setModalImage(fileName);
   };
