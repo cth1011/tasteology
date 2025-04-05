@@ -16,13 +16,23 @@ export default function Modal({ imageUrl, onClose }: ModalProps) {
       }
     };
 
+    const handleClickOutside = (e: MouseEvent) => {
+      // Check if the click is outside the image container
+      const target = e.target as HTMLElement;
+      if (target.classList.contains("modal-backdrop")) {
+        onClose();
+      }
+    };
+
     window.addEventListener("keydown", handleEsc);
+    window.addEventListener("mousedown", handleClickOutside);
 
     // Prevent body scrolling when modal is open
     document.body.style.overflow = "hidden";
 
     return () => {
       window.removeEventListener("keydown", handleEsc);
+      window.removeEventListener("mousedown", handleClickOutside);
       document.body.style.overflow = "auto";
     };
   }, [onClose]);
@@ -58,6 +68,7 @@ export default function Modal({ imageUrl, onClose }: ModalProps) {
             width={1200}
             height={800}
             className="h-auto max-h-[80vh] w-full rounded object-contain transition-all"
+            priority
           />
         </div>
       </div>
