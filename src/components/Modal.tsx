@@ -28,11 +28,11 @@ export default function Modal({ imageUrl, onClose }: ModalProps) {
   }, [onClose]);
 
   return (
-    <div className="bg-opacity-90 fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black p-4">
-      <div className="animate-fadeIn relative w-full max-w-4xl">
+    <div className="modal-backdrop animate-fade animate-once animate-duration-300 animate-ease-in fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/90 p-4">
+      <div className="animate-zoom-in animate-once animate-duration-500 animate-ease-out relative w-full max-w-4xl">
         <button
           onClick={onClose}
-          className="bg-opacity-50 hover:bg-opacity-70 absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-opacity"
+          className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white transition-all duration-300 hover:rotate-90 hover:bg-black/70"
           aria-label="Close modal"
         >
           <svg
@@ -51,13 +51,13 @@ export default function Modal({ imageUrl, onClose }: ModalProps) {
           </svg>
         </button>
 
-        <div className="rounded-lg bg-black p-2">
+        <div className="rounded-lg bg-black p-2 shadow-2xl">
           <Image
             src={imageUrl}
             alt="Modal image"
             width={1200}
             height={800}
-            className="h-auto max-h-[80vh] w-full object-contain"
+            className="h-auto max-h-[80vh] w-full rounded object-contain transition-all"
           />
         </div>
       </div>
