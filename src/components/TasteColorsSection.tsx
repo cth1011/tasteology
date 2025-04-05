@@ -18,6 +18,7 @@ export default function TasteColorsSection() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const img = e.currentTarget.querySelector("img");
+    console.log("Clicked element:", e.currentTarget);
     if (img) {
       setModalImage(img.src);
     }
