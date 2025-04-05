@@ -4,3 +4,14 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+h1 {
+  font-family: var(--font-sans);
+  letter-spacing: 1.5px;
+  line-height: 33px;
+  transform: uppercase;
+  font-size: 30px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+}
