@@ -28,12 +28,30 @@ export default function Modal({ imageUrl, onClose }: ModalProps) {
     window.addEventListener("mousedown", handleClickOutside);
 
     // Prevent body scrolling when modal is open
-    document.body.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    const html = document.documentElement;
+    const body = document.body;
 
+    // Lock scroll
+    html.style.position = "fixed";
+    html.style.top = `-${scrollY}px`;
+    html.style.width = "100%";
+    html.style.overflowY = "scroll";
+    body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", handleEsc);
       window.removeEventListener("mousedown", handleClickOutside);
+
+      html.style.position = "";
+      html.style.top = "";
+      html.style.width = "";
+      html.style.overflowY = "";
+      body.style.overflow = "";
       document.body.style.overflow = "auto";
+      document.body.style.position = "static";
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
     };
   }, [onClose]);
 
