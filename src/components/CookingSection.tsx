@@ -57,7 +57,7 @@ export default function CookingSection() {
             <h1 className="animate-fade-left animate-once animate-duration-1000 animate-delay-700 animate-ease-in-out mx-auto w-fit px-4 pb-7.5 text-center md:border-b md:px-0 lg:text-left">
               WHAT DOES COOKING MEAN?
             </h1>
-            <div className="animate-fade animate-once animate-duration-1000 animate-delay-800 mb-10 h-0.5 w-16 justify-self-center bg-gray-400 md:hidden"></div>
+            <div className="animate-fade animate-once animate-duration-1000 animate-delay-800 mx-auto mb-10 h-0.5 w-16 justify-self-center bg-gray-400 md:hidden"></div>
             <div className="hidden gap-2 px-16 pt-7.5 md:grid md:grid-cols-2 lg:hidden">
               <div className="col-span-1">
                 <a href="#" onClick={(e) => handleClick(e, "/pot.png")}>
