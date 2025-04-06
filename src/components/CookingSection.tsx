@@ -94,7 +94,7 @@ export default function CookingSection() {
             <a
               href="#"
               className="block md:hidden"
-              onClick={(e) => handleClick(e, "/pot.png")}
+              onClick={(e) => handleClick(e, "/chef.png")}
             >
               <Image
                 src="/chef.png"
